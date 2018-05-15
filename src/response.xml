@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+  ID="%1$s"
+  IssueInstant="%2$s"
+  Destination="%3$s"
+  Version="2.0">
+  <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">%4$s</saml:Issuer>
+  <samlp:Status>
+    <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+  </samlp:Status>
+  <saml:Assertion xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+    ID="%5$s"
+    IssueInstant="%2$s"
+    Version="2.0">
+    <saml:Issuer>%4$s</saml:Issuer>
+    <saml:Subject>
+      <saml:NameID
+        Format="urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+        NameQualifier="%4$s"
+        SPNameQualifier="%6$s">%7$s</saml:NameID>
+      <saml:SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+        <saml:SubjectConfirmationData NotOnOrAfter="%8$s" Recipient="%3$s" />
+      </saml:SubjectConfirmation>
+    </saml:Subject>
+    <saml:Conditions NotBefore="%2$s" NotOnOrAfter="%8$s">
+      <saml:AudienceRestriction>
+        <saml:Audience>%6$s</saml:Audience>
+      </saml:AudienceRestriction>
+    </saml:Conditions>
+  </saml:Assertion>
+</samlp:Response>
